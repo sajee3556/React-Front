@@ -1,0 +1,51 @@
+npm start ************
+Start from -> App.js -> render() invoke creating UI
+        - header.js   <Header branding="Contact Manager"/> //functional component
+        - Contacts.js <Contacts/>
+
+Create components
+    class Contacts extends Component
+    const {name, email, phone} = this.props; //we can access properties through props
+    <Contact
+        name="Line Manager"
+        email="react1@gmail.com"
+        phone="123-456-7892"/>
+
+import App.js -> main file
+
+if Bootstrap not exist: npm install bootstrap
+    then : import 'bootstrap/dist/css/bootstrap.min.css';
+    ex:
+
+Style sheet :  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    ex: <i className="fas fa-sort-down"></i>
+
+    Events in React:
+    <i onClick={() => console.log('Hello')} className="fas fa-sort-down"></i>
+    use : ternary operator ? setEvents() : null
+
+<React.Fragment> removes unwanted parts
+        this.state ={
+            showContactInfo: false
+        } // already define then use this.setState({showContactInfo: false})
+
+*************************************************************************
+ContextApi :
+Reducer:
+fixed delete ..................
+
+Header.defaultProps ={
+    branding : 'MyApp'    // set the value as default , override while pass the value
+};
+
+
+
+
+
+
+
+
+
+
+
+

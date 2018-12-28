@@ -1,0 +1,22 @@
+
+
+ *********************************************************************
+ props :vs state :
+    props (short for “properties”) and state are both plain JavaScript objects.
+    While both hold information that influences the output of render,
+    they are different in one important way: props get passed to the component
+    (similar to function parameters) whereas state is managed within the component
+    (similar to variables declared within a function).
+ **************************************************************************
+
+ Fragments : A common pattern in React is for a component to return multiple elements.
+ Fragments let you group a list of children without adding extra nodes to the DOM.
+
+PropTypes : You can define components without PropTypes.
+ But, without PropTypes or some form of type checking, we run into the risk of
+  passing in a wrong data type to a component, which could cause a crash or
+  some unexpected behavior in your application.
+
+  ****************************************************************************
+  Bootstap : .card-header ->tab
+             .card-body ->tab

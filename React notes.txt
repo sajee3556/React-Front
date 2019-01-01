@@ -20,3 +20,10 @@ PropTypes : You can define components without PropTypes.
   ****************************************************************************
   Bootstap : .card-header ->tab
              .card-body ->tab
+
+  npm i react-router-dom // install router packages- this should be need to route pages
+  npm i classnmaes
+  npm i bootstrap
+  npm i axios
+
+  i.fas.fa-home

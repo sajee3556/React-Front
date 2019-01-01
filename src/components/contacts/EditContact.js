@@ -3,17 +3,26 @@ import {Consumer} from "../../Context";
 import axios from 'axios';
 import TestFormGroup from "../layout/TestFormGroup";
 
-class AddContact extends Component {
+class EditContact extends Component {
     state = {
         name: '',
         email: '',
         phone: '',
         errors: {}
     };
-    // onNameChange = e => this.setState({name: e.target.value});
-    // onEmailChange = e => this.setState({email: e.target.value});
-    // onPhoneChange = e => this.setState({phone: e.target.value});
+    async componentDidMount(){
+        const {id} = this.props.match.params;
+        const res = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
+        const contact = res.data;
+        this.setState({
+            name:contact.name,
+            email:contact.email,
+            phone:contact.phone
+        });
+    };
+
     onChange = e => this.setState({[e.target.name]: e.target.value});
+
     onSubmit = async (dispatch, e) => {
         e.preventDefault();
         const {name, email, phone} = this.state;
@@ -35,22 +44,19 @@ class AddContact extends Component {
             });
             return;
         }
-        // const newContact = {
-        //     id: uuid(),
-        //     name,
-        //     email,
-        //     phone
-        // };
-        const newContact = {
+
+        const updateContact = {
             name,
             email,
             phone
         };
-        axios.post('https://jsonplaceholder.typicode.com/users',newContact)
-            .then(res => dispatch({type: 'ADD_CONTACT', payload: res.data}));
-        // dispatch({type: 'ADD_CONTACT', payload: newContact});
 
-        //clear values
+        const {id} = this.props.match.params;
+
+        const res = await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`,updateContact);
+        console.log(res.data);
+        dispatch({type: 'UPDATE_CONTACT', payload: res.data});
+
         this.setState({
             name: '',
             email: '',
@@ -69,38 +75,9 @@ class AddContact extends Component {
                 {value => {
                     const {dispatch} = value;
                     return (<div className="card mb-3">
-                        <div className="card-header">Add Contact</div>
+                        <div className="card-header">Edit Contact</div>
                         <div className="card-body">
                             <form onSubmit={this.onSubmit.bind(this, dispatch)}>
-
-                                {/*<div className="form-group">*/}
-                                {/*<label htmlFor="name">Name</label>*/}
-                                {/*<input type="text"*/}
-                                {/*name="name"*/}
-                                {/*className="form-control form-control-lg"*/}
-                                {/*placeholder="Enter your Name...."*/}
-                                {/*value={name}*/}
-                                {/*onChange={this.onChange}/>*/}
-                                {/*</div>*/}
-                                {/*<div className="form-group">*/}
-                                {/*<label htmlFor="email">Email</label>*/}
-                                {/*<input type="email"*/}
-                                {/*name="email"*/}
-                                {/*className="form-control form-control-lg"*/}
-                                {/*placeholder="Enter Email...."*/}
-                                {/*value={email}*/}
-                                {/*onChange={this.onChange}/>*/}
-                                {/*</div>*/}
-                                {/*<div className="form-group">*/}
-                                {/*<label htmlFor="name">Phone</label>*/}
-                                {/*<input type="text"*/}
-                                {/*name="phone"*/}
-                                {/*className="form-control form-control-lg"*/}
-                                {/*placeholder="Enter phone number...."*/}
-                                {/*value={phone}*/}
-                                {/*onChange={this.onChange}/>*/}
-                                {/*</div>*/}
-
 
                                 <TestFormGroup
                                     label="Name"
@@ -128,7 +105,7 @@ class AddContact extends Component {
                                     error={errors.phone}
                                 />
                                 <input type="submit"
-                                       value="Add Contact"
+                                       value="Update Contact"
                                        className="btn btn-light btn-block"/>
                             </form>
                         </div>
@@ -140,4 +117,4 @@ class AddContact extends Component {
 
 }
 
-export default AddContact;
+export default EditContact;

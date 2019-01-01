@@ -38,6 +38,15 @@ Header.defaultProps ={
     branding : 'MyApp'    // set the value as default , override while pass the value
 };
 
+react-route-dom : package provide ..router route switch : also map Link
+
+ComponentDidMount : using Ajax calls
+ComponentWillMount : this executing before ComponentDidMount
+ComponentDidUpdate: it re renders after component change
+ComponentWillUpdate:
+ComponentWillReceiveProps : componentWillReceiveProps(nextProps, nextState)
+
+https://medium.com/@baphemot/understanding-react-react-16-3-component-life-cycle-23129bc7a705
 
 
 

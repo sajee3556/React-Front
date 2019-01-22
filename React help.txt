@@ -1,4 +1,7 @@
-npm start ************
+npm install -g create-react-app // initaializing packages
+create-react-app client-panel-app //generate application
+create-react-app . //also generate app
+npm start ****
 Start from -> App.js -> render() invoke creating UI
         - header.js   <Header branding="Contact Manager"/> //functional component
         - Contacts.js <Contacts/>
@@ -13,6 +16,9 @@ Create components
 
 import App.js -> main file
 
+https://getbootstrap.com/docs/4.2/getting-started/introduction/
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+// put this in main index.html
 if Bootstrap not exist: npm install bootstrap
     then : import 'bootstrap/dist/css/bootstrap.min.css';
     ex:
@@ -49,7 +55,16 @@ ComponentWillReceiveProps : componentWillReceiveProps(nextProps, nextState)
 https://medium.com/@baphemot/understanding-react-react-16-3-component-life-cycle-23129bc7a705
 
 
+*****************************************************************************************
 
+Redux: it replace instead of context api..
+based on the requirements redux takes place on complex applications
+
+    -> provider
+    -> reducer
+
+    connect - {connect} from "react-redux"; connect the contact Reducer and
+    mapDispatchToProps ,mapStateToProps..
 
 
 
